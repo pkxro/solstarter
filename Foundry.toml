@@ -1,0 +1,34 @@
+[profile.default]
+    src = 'contracts'
+    out = 'dist/artifacts'
+    libs = ['lib']
+    solc-version = "0.8.17"
+    optimizer = false
+    bytecode_hash = "none"
+    verbosity = 3
+    gas_reports = ["*"]
+
+[profile.optimized]
+    via_ir = true
+    out = 'out-via-ir'
+    fuzz_runs = 5000
+    optimizer = true
+    optimizer_runs = 1000000
+    verbosity = 3
+
+[profile.test]
+    via_ir = true
+    out = 'out-via-ir'
+    fuzz_runs = 5000
+    src = 'contracts/test'
+    verbosity = 3
+
+[fmt]
+    indent = 4
+    line_length = 180
+    tab_width = 4
+    bracket_spacing = true
+    func_attrs_with_params_multiline = false
+    quote_style = "double"
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config

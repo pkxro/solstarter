@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  ci:
+    name: Run CI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+      - name: Clean and build dependenceis
+        run: make build
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: |
+            - recursive: false
+
+      - name: Lint check
+        run: make lint_check
+
+      - name: Run forge tests
+        run: make test
+
+      - name: Get a gas snapshot
+        run: make gas_snapshot

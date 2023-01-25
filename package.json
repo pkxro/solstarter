@@ -1,0 +1,25 @@
+{
+  "name": "${name}",
+  "author": "${author}",
+  "version": "0.0.1",
+  "description": "${description}",
+  "repository": {
+    "type": "git",
+    "url": "git+${repository}"
+  },
+  "homepage": "",
+  "scripts": {
+    "fmt": "prettier --write 'contracts/**/*.sol'",
+    "fmt:list": "prettier --list-different 'contracts/**/*.sol'",
+    "fmt:check": "prettier --check 'contracts/**/*.sol'",
+    "lint": "solhint --config ./.solhint.json 'contracts/**/*.sol' --fix",
+    "lint:check": "solhint --config ./.solhint.json 'contracts/**/*.sol'"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.1",
+    "prettier-plugin-solidity": "^1.1.0",
+    "solhint": "^3.3.7",
+    "solhint-plugin-prettier": "^0.0.5"
+  },
+  "packageManager": "pnpm@7.13.1"
+}
