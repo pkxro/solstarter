@@ -77,7 +77,7 @@ Includes:
 - `remappings.txt`
 - `Foundry.toml`
 - `.github/workflows/`
-- `.prettierrc.json`
+- `.rome.json`
 - `.solhint.json`
 
 ## Acknowledgement
