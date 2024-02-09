@@ -42,6 +42,13 @@ deploy_goerli :; FOUNDRY_PROFILE=optimized forge script ./script/Deploy.s.sol \
 	--etherscan-api-key ${ETHERSCAN_API_KEY} \
     --verify
 
+deploy_arbitrary :; FOUNDRY_PROFILE=optimized forge script ./script/Deploy.s.sol \
+	--rpc-url ${RPC_URL} \
+	--private-key ${PRIVATE_KEY} \
+	-vvv \
+	--broadcast \
+	--chain-id ${CHAIN_ID}
+
 deploy_mainnet :; FOUNDRY_PROFILE=optimized forge script ./script/Deploy.s.sol \
 	--rpc-url ${RPC_URL} \
 	--private-key ${PRIVATE_KEY} \
